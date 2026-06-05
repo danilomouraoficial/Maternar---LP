@@ -1,4 +1,3 @@
-// @ts-expect-error - befree-visual-edit lacks typescript declarations
 import { visualEditPlugin } from 'befree-visual-edit/vite';
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
