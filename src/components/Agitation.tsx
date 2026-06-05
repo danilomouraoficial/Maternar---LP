@@ -12,8 +12,8 @@ export default function Agitation() {
             <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-3 py-1 text-xs font-bold text-red-600 uppercase tracking-wider">
               Informação Insegura
             </div>
-            <h2 className="text-3xl font-bold leading-tight text-[#093C31] font-heading md:text-4xl tracking-[-0.01em]">
-              O perigo de pesquisar sintomas na madrugada
+            <h2 className="text-3xl font-bold leading-tight text-[#093C31] font-heading md:text-4xl tracking-[-0.01em] balance-text">
+              O perigo de pesquisar sintomas na{"\u00a0"}madrugada
             </h2>
             <p className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed">
               Quando seu bebê chora sem parar ou a febre sobe, a última coisa que você precisa é da ansiedade que o Google causa. Cadernos de papel se perdem, grupos de WhatsApp estão cheios de palpites conflitantes e planilhas no Excel são frias e difíceis de preencher no escuro com o bebê no colo.

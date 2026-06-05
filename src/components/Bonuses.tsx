@@ -4,7 +4,7 @@ export default function Bonuses() {
       <div className="container">
         <div className="faq-intro">
           <span className="eyebrow">Apoio Completo</span>
-          <h2 className="headline-lg">Presentes exclusivos incluídos no seu acesso</h2>
+          <h2 className="headline-lg balance-text">Presentes exclusivos incluídos no seu{"\u00a0"}acesso</h2>
           <p className="body-lg" style={{ maxWidth: '600px', margin: '0 auto' }}>
             Para garantir que você passe pelo pós-parto com o máximo de suporte, preparamos 4 bônus especiais e práticos.
           </p>

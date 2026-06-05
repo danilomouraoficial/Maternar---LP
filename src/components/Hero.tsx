@@ -1,7 +1,26 @@
+import { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import homeMockup from '../assets/brand/mockup/New/home.png';
 
+const HERO_IMAGES = [
+  {
+    src: '/img1.png',
+    alt: 'Mãe abraçando seu bebê com carinho em um momento de afeto e conexão'
+  },
+  {
+    src: '/img2.png',
+    alt: 'Mãe beijando seu bebê com carinho em um ambiente aconchegante e ensolarado'
+  }
+];
+
 export default function Hero() {
+  const [selectedImage, setSelectedImage] = useState(HERO_IMAGES[1]);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
+    setSelectedImage(HERO_IMAGES[randomIndex]);
+  }, []);
+
   return (
     <section className="hero fade-in">
       {/* Linhas Decorativas Editoriais no Fundo */}
@@ -44,7 +63,7 @@ export default function Hero() {
           <div className="hero-visual-bg-card" aria-hidden="true" />
           
           <div className="hero-image-wrapper-editorial">
-            <img src="/img2.png" alt="Mãe beijando seu bebê com carinho em um ambiente ensolarado" />
+            <img src={selectedImage.src} alt={selectedImage.alt} />
           </div>
 
           {/* Mockup de alta qualidade (home.png da pasta New) com sobreposição e inclinação */}

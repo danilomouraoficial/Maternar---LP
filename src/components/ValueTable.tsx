@@ -16,8 +16,8 @@ export default function ValueTable() {
         {/* Cabeçalho */}
         <div className="space-y-3">
           <span className="text-xs font-black uppercase text-secondary tracking-widest block">Tabela de Custo Comparativa</span>
-          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-slate-800 tracking-tight">
-            O que você deixaria de pagar pra ter tudo isso separado
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-slate-800 tracking-tight balance-text">
+            O que você deixaria de pagar pra ter tudo isso{"\u00a0"}separado
           </h2>
         </div>
 
