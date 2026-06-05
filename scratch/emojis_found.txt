@@ -1,0 +1,4 @@
+File: FinalCTA.tsx, Line: 14, Emojis: ['🛡'], Content: <span className="closing-guarantee-icon">🛡️</span>
+File: Hero.tsx, Line: 21, Emojis: ['✓'], Content: <span>✓ Acesso imediato</span>
+File: Hero.tsx, Line: 23, Emojis: ['✓'], Content: <span>✓ Sem cobranças surpresas</span>
+File: Hero.tsx, Line: 25, Emojis: ['✓'], Content: <span>✓ Garantia de 7 dias</span>

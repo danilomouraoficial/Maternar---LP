@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maternar — Tudo sobre seu bebê em um só lugar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green-deep: #085041;
+      --green-mid: #0F6E56;
+      --green-bright: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-pale: #F0FAF6;
+      --amber: #EF9F27;
+      --amber-light: #FAEEDA;
+      --red: #E24B4A;
+      --red-light: #FCEBEB;
+      --text-primary: #1A1A1A;
+      --text-secondary: #5A5A5A;
+      --text-muted: #9A9A9A;
+      --border: #E8E8E8;
+      --white: #FFFFFF;
+      --bg-soft: #F8F9F7;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section--tight {
+      padding: 40px 0;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── TYPE ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .eyebrow--green {
+      color: var(--green-mid);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+    }
+
+    .headline-xl {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .headline-xl em {
+      font-style: italic;
+      color: var(--green-mid);
+    }
+
+    .headline-xl strong {
+      font-style: normal;
+      color: var(--green-deep);
+    }
+
+    .headline-lg {
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .body-lg {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .body-md {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-primary);
+    }
+
+    .body-sm {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* ── TAGS / BADGES ── */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 99px;
+    }
+
+    .tag--green {
+      background: var(--green-light);
+      color: var(--green-deep);
+    }
+
+    .tag--amber {
+      background: var(--amber-light);
+      color: #633806;
+    }
+
+    .tag--red {
+      background: var(--red-light);
+      color: #8B1A1A;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #F0FAF6 0%, #FAFFF8 60%, #FFF8F0 100%);
+      padding: 72px 0 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .container {
+      max-width: 640px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-urgency {
+      font-size: 13px;
+      color: var(--red);
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-btn {
+      display: inline-block;
+      background: var(--green-mid);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      letter-spacing: .01em;
+    }
+
+    .cta-btn:hover {
+      background: var(--green-deep);
+      transform: translateY(-1px);
+    }
+
+    .cta-btn--secondary {
+      background: transparent;
+      color: var(--green-mid);
+      border: 2px solid var(--green-bright);
+    }
+
+    .cta-btn--secondary:hover {
+      background: var(--green-light);
+      transform: translateY(-1px);
+    }
+
+    .cta-btn--white {
+      background: #fff;
+      color: var(--green-deep);
+    }
+
+    .cta-btn--white:hover {
+      background: var(--green-pale);
+      transform: translateY(-1px);
+    }
+
+    .cta-sub-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── LETTER / PROSE ── */
+    .letter p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter strong {
+      font-weight: 600;
+    }
+
+    /* ── PAIN CARDS ── */
+    .pain-card {
+      border-left: 3px solid var(--red);
+      background: var(--red-light);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+
+    .pain-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #4A1010;
+    }
+
+    .pain-card p strong {
+      color: #8B1A1A;
+      font-weight: 600;
+    }
+
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+      background: var(--bg-soft);
+    }
+
+    .pullquote p {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(20px, 3.5vw, 26px);
+      line-height: 1.45;
+      color: var(--text-primary);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .pullquote span {
+      color: var(--green-mid);
+      font-style: italic;
+    }
+
+    /* ── SOLUTION INTRO ── */
+    .solution-intro {
+      background: var(--green-light);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .solution-intro h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--green-deep);
+      margin-bottom: 8px;
+    }
+
+    .solution-intro p {
+      font-size: 14px;
+      color: var(--green-mid);
+      line-height: 1.7;
+    }
+
+    /* ── FEATURE ROWS ── */
+    .feat-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+      transition: box-shadow .2s;
+    }
+
+    .feat-row:hover {
+      box-shadow: 0 4px 24px rgba(15, 110, 86, .08);
+    }
+
+    .feat-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+    }
+
+    .feat-text h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .feat-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .proof-line {
+      font-size: 12px;
+      color: var(--green-mid);
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .proof-line::before {
+      content: "✓";
+      flex-shrink: 0;
+    }
+
+    /* ── SCENARIO BOXES ── */
+    .scenario-box {
+      background: var(--amber-light);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 10px 0;
+    }
+
+    .scenario-box p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #412402;
+    }
+
+    .scenario-box p strong {
+      color: #633806;
+      font-weight: 600;
+    }
+
+    .scenario-box.green {
+      background: var(--green-light);
+      border-left-color: var(--green-bright);
+    }
+
+    .scenario-box.green p {
+      color: #04342C;
+    }
+
+    .scenario-box.green p strong {
+      color: var(--green-deep);
+    }
+
+    .arrow-between {
+      text-align: center;
+      font-size: 22px;
+      color: var(--text-muted);
+      padding: 4px 0;
+    }
+
+    /* ── FOR WHO ── */
+    .for-who {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .for-card {
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .for-yes {
+      background: var(--green-light);
+      border: 1px solid #5DCAA5;
+    }
+
+    .for-no {
+      background: var(--red-light);
+      border: 1px solid #F09595;
+    }
+
+    .for-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: .03em;
+    }
+
+    .for-yes h3 {
+      color: var(--green-deep);
+    }
+
+    .for-no h3 {
+      color: #8B1A1A;
+    }
+
+    .for-card ul {
+      list-style: none;
+    }
+
+    .for-card ul li {
+      font-size: 13px;
+      line-height: 1.6;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .for-card ul li span.ic {
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 14px;
+    }
+
+    .for-yes ul li {
+      color: var(--green-deep);
+    }
+
+    .for-no ul li {
+      color: #791F1F;
+    }
+
+    /* ── VALUE TABLE ── */
+    .value-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .value-table th {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .value-table td {
+      font-size: 14px;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .value-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .value-table .price-col {
+      text-align: right;
+      font-weight: 500;
+    }
+
+    .value-table .total-row td {
+      font-weight: 600;
+      color: var(--green-deep);
+      background: var(--green-light);
+    }
+
+    .crossed {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .green-price {
+      color: var(--green-mid);
+      font-weight: 700;
+    }
+
+    /* ── BONUS CARDS ── */
+    .bonus-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--bg-soft);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .bonus-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .bonus-text h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .bonus-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+      transition: box-shadow .2s;
+    }
+
+    .testi:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+    }
+
+    .testi-stars {
+      color: var(--amber);
+      font-size: 14px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .testi-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .av {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-mid);
+      flex-shrink: 0;
+    }
+
+    .av-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .av-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: var(--green-pale);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--green-mid);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .plan-card {
+      border-radius: 20px;
+      padding: 24px 20px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      position: relative;
+    }
+
+    .plan-card.featured {
+      border: 2px solid var(--green-bright);
+    }
+
+    .plan-pill {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 18px;
+      border-radius: 99px;
+      white-space: nowrap;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .plan-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .plan-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .plan-price-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .plan-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin: 10px 0 16px;
+      line-height: 1.55;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .plan-list li {
+      font-size: 13px;
+      padding: 5px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text-primary);
+    }
+
+    .plan-list li span.ic {
+      color: var(--green-bright);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 14px;
+    }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px;
+      border-radius: 99px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: .01em;
+    }
+
+    .btn-plan.primary {
+      background: var(--green-mid);
+      color: #fff;
+    }
+
+    .btn-plan.primary:hover {
+      background: var(--green-deep);
+    }
+
+    .btn-plan.secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-plan.secondary:hover {
+      border-color: var(--green-bright);
+      color: var(--green-mid);
+    }
+
+    /* ── GUARANTEE ── */
+    .guarantee {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border: 2px solid var(--green-bright);
+      border-radius: 16px;
+      padding: 24px;
+      background: var(--green-pale);
+    }
+
+    .guarantee-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+
+    .guarantee h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 6px;
+    }
+
+    .guarantee p {
+      font-size: 13px;
+      color: var(--green-mid);
+      line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .faq-q {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--green-deep);
+      border-radius: 24px;
+      padding: 56px 32px;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .final-cta h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 400;
+      color: var(--green-light);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      color: #9FE1CB;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 560px) {
+      .for-who {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .feat-row {
+        flex-direction: column;
+      }
+
+      .feat-ico {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        font-size: 12pt;
+      }
+
+      .hero {
+        background: none;
+      }
+
+      .feat-row:hover,
+      .testi:hover {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge-row">
+        <span class="tag tag--green">Lançamento especial</span>
+        <span class="tag tag--amber">Oferta por tempo limitado</span>
+      </div>
+
+      <h1 class="headline-xl">
+        Ser uma <em>boa mãe</em> ão deveria depender de memória perfeita, caderninho de papel e conta de cabeça às 3 da
+        manhã.
+      </h1>
+
+      <p class="hero-sub">
+        O Maternar é o primeiro app que coloca a saúde inteira do seu bebê —
+        vacinas, remédios, consultas, desenvolvimento e o bem-estar da mãe —
+        em um único lugar, organizado, com alertas inteligentes e sem julgamento.
+      </p>
+
+      <a href="#planos" class="cta-btn">Quero organizar tudo agora</a>
+      <p class="cta-sub-text">Acesso vitalício por R$ 87,90 · Garantia de 7 dias</p>
+      <p class="hero-urgency">⏱ Preço de lançamento. Pode subir a qualquer momento.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+     CARTA — IDENTIFICAÇÃO COM A DOR
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Antes de falar do app — preciso te perguntar uma coisa</span>
+
+      <div class="letter">
+        <p>Você já ficou acordada às 2 da manhã tentando calcular se a próxima dose do antibiótico do seu bebê é às 4h
+          ou às 6h — com sono, com medo de errar, e sem ninguém pra te ajudar naquele momento?</p>
+        <p>Você já chegou na consulta do pediatra, sentiu aquele frio na barriga quando ele perguntou "qual foi a última
+          vacina?" — e não soube responder com certeza?</p>
+        <p>Você já se sentiu culpada por não lembrar quando seu bebê mamou pela última vez, em qual peito foi, por
+          quanto tempo — porque você estava exausta demais pra registrar?</p>
+        <p><strong>Se você respondeu sim pra qualquer uma dessas perguntas, você não é desorganizada. Você não é uma mãe
+            ruim.</strong></p>
+        <p>Você é uma mãe que recebeu o maior trabalho da sua vida sem nenhuma ferramenta à altura.</p>
+        <p>O caderninho de vacinação do posto rasga. O bloco de notas do celular não tem alarme. A planilha no Google
+          Sheets não recalcula os horários quando você erra uma dose. E nenhum desses resolve tudo ao mesmo tempo.</p>
+        <p>Foi por isso que o Maternar foi criado.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     DOR — SITUAÇÕES CONCRETAS
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">A dor que ninguém fala em voz alta</span>
+
+      <div class="pain-card">
+        <p><strong>A dose atrasada que vira pesadelo.</strong> Seu bebê está tomando amoxicilina de 8 em 8 horas. Eram
+          14h, você estava no mercado. Deu às 15h10. Agora você fica olhando pro teto às 23h sem saber se a próxima é às
+          23h ou meia-noite. Com medo de superdosar. Com medo de subdosar. Com medo de errar.</p>
+      </div>
+
+      <div class="pain-card">
+        <p><strong>A vacina que você "acha" que foi dada.</strong> A pediatra pergunta sobre a segunda dose da
+          Pentavalente. Você abre o caderninho, a letra tá ilegível, a data rasgou, e você genuinamente não sabe se foi
+          dada no posto do bairro ou se ainda está pendente. Aquela sensação de vergonha misturada com pânico.</p>
+      </div>
+
+      <div class="pain-card">
+        <p><strong>O "vai lembrar depois" que nunca vira anotação.</strong> Seu bebê fez um barulho diferente às 3 da
+          manhã. Você pensou "vou perguntar pro pediatra". A consulta é em 3 semanas. Na sala de espera, a dúvida sumiu.
+          Você sai da consulta e lembra no caminho pra casa.</p>
+      </div>
+
+      <div class="pain-card">
+        <p><strong>O silêncio de não saber como você está.</strong> Todo mundo pergunta do bebê. Ninguém pergunta de
+          você. Você vira uma máquina de cuidar e esquece que também precisa ser cuidada. Você não sabe mais se está bem
+          ou se só está funcionando.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     PULLQUOTE
+═══════════════════════════════════════════ -->
+  <div class="pullquote">
+    <div class="container">
+      <p>"O problema não é que você é desorganizada.<br>
+        É que ninguém criou uma ferramenta<br>
+        <span>digna do trabalho que é ser mãe.</span>"
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+     SOLUÇÃO — FUNCIONALIDADES
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="solution-intro">
+        <h2>Apresentando o Maternar</h2>
+        <p>O app que centraliza tudo que envolve a saúde do seu bebê — e a sua — em um único lugar. Com inteligência
+          real, alertas que chegam na hora certa e uma interface que não exige que você pense muito quando já está
+          exausta demais pra isso.</p>
+      </div>
+
+      <!-- FEAT 1 — Vacinas -->
+      <div class="feat-row">
+        <div class="feat-ico">🛡️</div>
+        <div class="feat-text">
+          <h3>Caderneta digital de vacinação com o calendário oficial do PNI</h3>
+          <p>Todas as vacinas do Programa Nacional de Imunização organizadas por faixa etária. O app calcula
+            automaticamente quais estão aplicadas, quais estão chegando e quais estão atrasadas — com um alerta na noite
+            anterior pra você não chegar despreparada ao posto.</p>
+          <div class="proof-line">Inclui BCG, Pentavalente, Rotavírus, Meningocócica, Febre Amarela e muito mais</div>
+          <div class="proof-line">Alerta na véspera às 19h30 — você dorme sabendo que tem vacina amanhã</div>
+        </div>
+      </div>
+
+      <!-- FEAT 2 — Remédios (bloco atualizado) -->
+      <div class="feat-row">
+        <div class="feat-ico">💊</div>
+        <div class="feat-text">
+          <h3>Remédios que calculam tudo por você — desde o primeiro segundo</h3>
+          <p>Você está exausta, seu bebê acabou de tomar a primeira dose, e o pediatra prescreveu de 8 em 8 horas por 7
+            dias. Você precisaria calcular 21 horários na cabeça, com medo de errar um.</p>
+          <p>No Maternar, você informa só três coisas: o horário da primeira dose, o intervalo e a duração. O app já
+            mostra na tela todos os próximos horários calculados antes mesmo de você salvar. Você vê, confirma e dorme —
+            sem fazer uma conta sequer.</p>
+
+          <div class="scenario-box">
+            <p><strong>Antes do Maternar:</strong> "São 2h da manhã. A primeira dose foi às 18h. A próxima é às 2h ou às
+              2h30? Espera... de 8 em 8... 18h + 8 = 2h da manhã. Mas eu anotei 18h10... então são 2h10. Ou será que era
+              pra contar do horário prescrito e não do real?" — e você fica acordada com esse peso.</p>
+          </div>
+          <div class="arrow-between">↓</div>
+          <div class="scenario-box green">
+            <p><strong>Com o Maternar:</strong> Você abre o app, informa 18h10 como horário de início e "a cada 8
+              horas". O app mostra na hora: 2ª dose às 02:10, 3ª às 10:10, 4ª às 18:10... todos os 21 horários do
+              tratamento, organizados. Você fecha o app e dorme.</p>
+          </div>
+
+          <div class="proof-line">Se atrasar qualquer dose, o app recalcula todas as próximas automaticamente — sem
+            superdosagem, sem intervalo errado</div>
+          <div class="proof-line">Alerta 5 minutos antes de cada dose — tempo suficiente pra preparar o dosador sem
+            correria</div>
+          <div class="proof-line">Calculadora de gotas integrada — converte ml em gotas sem precisar procurar tabela no
+            Google de madrugada</div>
+        </div>
+      </div>
+
+      <!-- FEAT 3 — Consultas -->
+      <div class="feat-row">
+        <div class="feat-ico">🩺</div>
+        <div class="feat-text">
+          <h3>Central de consultas pediátricas com campo de dúvidas</h3>
+          <p>Cadastre a consulta com data, hora e nome da pediatra. Mas o recurso mais amado é o campo "minhas dúvidas":
+            anote as perguntas ao longo do mês, conforme elas aparecerem. Na sala de espera, você abre o app e leva tudo
+            registrado. Nada esquecido. Nada desperdiçado.</p>
+          <div class="proof-line">Após a consulta, registre peso, altura e orientações médicas — histórico de
+            crescimento automático</div>
+          <div class="proof-line">Alerta às 20h da véspera e 2 horas antes — você nunca chega de surpresa</div>
+        </div>
+      </div>
+
+      <!-- FEAT 4 — Desenvolvimento -->
+      <div class="feat-row">
+        <div class="feat-ico">🌱</div>
+        <div class="feat-text">
+          <h3>Jornada de desenvolvimento com marcos por faixa etária</h3>
+          <p>Acompanhe reflexos, contato visual, primeiras palavras e muito mais com uma timeline visual que mostra o
+            progresso esperado para a idade do seu bebê — e te avisa quando um marco se aproxima.</p>
+          <div class="proof-line">21+ marcos de desenvolvimento mapeados do nascimento aos 4 anos</div>
+          <div class="proof-line">Progresso visual por etapas — você enxerga o quanto seu bebê já evoluiu</div>
+        </div>
+      </div>
+
+      <!-- FEAT 5 — Diário -->
+      <div class="feat-row">
+        <div class="feat-ico">📒</div>
+        <div class="feat-text">
+          <h3>Diário do bebê em poucos toques</h3>
+          <p>Registre mamadas, sonecas e fraldas em segundos — sem formulários complicados. O app identifica padrões e
+            te dá um resumo do dia para você entender o ritmo do bebê sem precisar decifrar anotações espalhadas.</p>
+          <div class="proof-line">Sincroniza em tempo real com o pai, babá ou avó — sem precisar ligar pra checar</div>
+          <div class="proof-line">Linha do tempo visual do dia — você vê tudo num só lugar</div>
+        </div>
+      </div>
+
+      <!-- FEAT 6 — Bem-estar -->
+      <div class="feat-row">
+        <div class="feat-ico">🤍</div>
+        <div class="feat-text">
+          <h3>Monitor emocional da mãe — porque você também importa</h3>
+          <p>Check-in diário de humor, calendário emocional mensal e exercícios guiados de respiração para momentos de
+            pico de estresse no puerpério. O Maternar é talvez o único app de bebê que também cuida de você.</p>
+          <div class="proof-line">Calendário emocional revela padrões de esgotamento antes que virem crises</div>
+          <div class="proof-line">Exercícios de respiração de 2 minutos feitos para o estresse do puerpério</div>
+        </div>
+      </div>
+
+      <!-- FEAT 7 — PDF -->
+      <div class="feat-row">
+        <div class="feat-ico">📄</div>
+        <div class="feat-text">
+          <h3>Relatório clínico em PDF para enviar ao pediatra</h3>
+          <p>Com um clique, gera um documento completo com vacinas tomadas, evolução de peso e altura, consultas
+            realizadas e medicamentos do mês. Envie pelo WhatsApp antes da consulta — a pediatra vai adorar.</p>
+          <div class="proof-line">Diagramado em padrão profissional, pronto para ser salvo ou compartilhado</div>
+          <div class="proof-line">Tabela de dosagens pediátricas integrada para consulta rápida</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     STATS STRIP
+═══════════════════════════════════════════ -->
+  <section class="section--tight" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="stats-strip">
+        <div class="stat-card">
+          <div class="stat-num">PNI</div>
+          <div class="stat-label">Calendário oficial integrado e atualizado</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5 min</div>
+          <div class="stat-label">Alerta antes de cada dose de remédio</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Membros na rede de apoio sincronizada</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     PARA QUEM É
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Este app é pra você?</span>
+      <div class="for-who">
+        <div class="for-card for-yes">
+          <h3>✅ É pra você se...</h3>
+          <ul>
+            <li><span class="ic">✓</span>Você tem bebê de 0 a 4 anos</li>
+            <li><span class="ic">✓</span>Já errou ou quase errou um horário de remédio</li>
+            <li><span class="ic">✓</span>Quer parar de depender de memória e papel</li>
+            <li><span class="ic">✓</span>Quer chegar organizada na consulta</li>
+            <li><span class="ic">✓</span>Quer que o pai também participe do cuidado</li>
+            <li><span class="ic">✓</span>Precisa de um espaço seguro pra você também</li>
+          </ul>
+        </div>
+        <div class="for-card for-no">
+          <h3>❌ Não é pra você se...</h3>
+          <ul>
+            <li><span class="ic">✗</span>Seu filho já tem mais de 4 anos</li>
+            <li><span class="ic">✗</span>Você prefere papel e caneta de verdade</li>
+            <li><span class="ic">✗</span>Você não tem 30 segundos por dia pra registrar</li>
+            <li><span class="ic">✗</span>Está buscando substituto do pediatra</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     TABELA DE VALOR
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">O que você deixaria de pagar pra ter tudo isso separado</span>
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>Se você fosse montar isso sozinha</th>
+            <th class="price-col">Custo estimado / ano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>App de controle de vacinas (pago)</td>
+            <td class="price-col">R$ 59,90</td>
+          </tr>
+          <tr>
+            <td>App de controle de remédios com alertas</td>
+            <td class="price-col">R$ 49,90</td>
+          </tr>
+          <tr>
+            <td>App de diário do bebê premium</td>
+            <td class="price-col">R$ 79,90</td>
+          </tr>
+          <tr>
+            <td>App de monitoramento emocional / mindfulness</td>
+            <td class="price-col">R$ 69,90</td>
+          </tr>
+          <tr>
+            <td>Caderneta de saúde impressa com histórico</td>
+            <td class="price-col">R$ 35,00</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total se você comprar separado</td>
+            <td class="price-col"><span class="crossed">R$ 294,60 / ano</span></td>
+          </tr>
+          <tr class="total-row">
+            <td>Maternar — tudo em um app, para sempre</td>
+            <td class="price-col"><span class="green-price">R$ 87,90 único</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     BÔNUS
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Bônus incluídos no seu acesso</span>
+
+      <div class="bonus-card">
+        <div class="bonus-num">1</div>
+        <div class="bonus-text">
+          <h3>Biblioteca Maternar — guia de sobrevivência materna</h3>
+          <p>Artigos objetivos, sem anúncios, organizados em 4 categorias de alta necessidade: cólica e refluxo, crises
+            de sono, amamentação e saltos de desenvolvimento. Uma nova dica selecionada automaticamente todo dia.</p>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">2</div>
+        <div class="bonus-text">
+          <h3>Rede de apoio sincronizada — pai, babá e avós no mesmo app</h3>
+          <p>Compartilhe acesso com até 2 pessoas. Tudo que a babá registrar aparece no seu celular na mesma hora. Você
+            para de ser a central de informações da família e começa a ser a mãe que descansa um pouco.</p>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">3</div>
+        <div class="bonus-text">
+          <h3>Exercícios de ancoragem — respiração guiada pra momentos de crise</h3>
+          <p>Animações interativas de respiração guiada de 2 minutos, criadas especificamente para o estresse do
+            puerpério. Quando o choro não para e você sente que vai explodir — abra o app.</p>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">4</div>
+        <div class="bonus-text">
+          <h3>Tabela de dosagens pediátricas + Telefones úteis</h3>
+          <p>Referência rápida de dosagens por peso do bebê e lista de contatos de emergência (SAMU, CVS, plantão
+            pediátrico) disponíveis sem precisar sair do app ou perder tempo no Google.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     DEPOIMENTOS
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">O que as mães estão dizendo</span>
+
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-body">"Meu filho tomou um antibiótico por 7 dias e eu dei uma dose atrasada no 4º dia. O app
+          recalculou todos os horários sozinho e me mandou alerta nos novos horários. Fiquei completamente em paz pelo
+          resto do tratamento."</p>
+        <div class="testi-author">
+          <div class="av">JF</div>
+          <div>
+            <div class="av-name">Juliana F.</div>
+            <div class="av-sub">Mãe do Theo, 8 meses — São Paulo/SP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-body">"Na última consulta, a pediatra me perguntou quando foi a vacina da Meningocócica. Eu abri
+          o app, mostrei a data, o lote e ainda a anotação que tinha feito que a Isa ficou com febrinha naquele dia. A
+          médica pediu pra eu recomendar pras outras mães."</p>
+        <div class="testi-author">
+          <div class="av">CM</div>
+          <div>
+            <div class="av-name">Camila M.</div>
+            <div class="av-sub">Mãe da Isadora, 5 meses — Belo Horizonte/MG</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-body">"O campo de dúvidas pra pediatra mudou tudo. Antes eu chegava na consulta e ficava em
+          branco. Agora chego com 6, 7 perguntas anotadas ao longo do mês. Sinto que estou aproveitando cada consulta de
+          verdade."</p>
+        <div class="testi-author">
+          <div class="av">PS</div>
+          <div>
+            <div class="av-name">Patrícia S.</div>
+            <div class="av-sub">Mãe do Miguel, 4 meses — Curitiba/PR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-body">"Meu marido acessa o mesmo app que eu. Agora ele sabe o que a babá fez durante o dia, em
+          que horário o bebê mamou, se a fralda foi normal. Ele para de me ligar 10 vezes quando estou no trabalho. Isso
+          sozinho já pagou o app centenas de vezes."</p>
+        <div class="testi-author">
+          <div class="av">RS</div>
+          <div>
+            <div class="av-name">Renata S.</div>
+            <div class="av-sub">Mãe da Lara, 11 meses — Rio de Janeiro/RJ</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     CTA INTERMEDIÁRIO
+═══════════════════════════════════════════ -->
+  <section class="section--tight" style="text-align:center; background: var(--green-pale);">
+    <div class="container">
+      <p
+        style="font-size:18px; font-family:'DM Serif Display',serif; color:var(--green-deep); margin-bottom:20px; line-height:1.4;">
+        Tudo isso por menos do que uma pizza delivery.
+      </p>
+      <a href="#planos" class="cta-btn">Ver planos e garantir meu acesso</a>
+      <p class="cta-sub-text" style="margin-top:10px;">Garantia de 7 dias · Acesso imediato</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     PLANOS
+═══════════════════════════════════════════ -->
+  <section class="section" id="planos">
+    <div class="container">
+      <span class="eyebrow">Escolha seu plano</span>
+
+      <div class="pricing-wrap">
+        <div class="plan-card">
+          <div class="plan-label">Acesso anual</div>
+          <div class="plan-price">R$ 47,90 <span class="plan-price-sub">/ ano</span></div>
+          <div class="plan-desc">Menos de R$ 4 por mês. Renova automaticamente todo ano.</div>
+          <ul class="plan-list">
+            <li><span class="ic">✓</span>Todas as funcionalidades</li>
+            <li><span class="ic">✓</span>Atualizações incluídas</li>
+            <li><span class="ic">✓</span>Rede de apoio (3 membros)</li>
+            <li><span class="ic">✓</span>Suporte por e-mail</li>
+          </ul>
+          <button class="btn-plan secondary">Começar com o anual</button>
+        </div>
+
+        <div class="plan-card featured">
+          <div class="plan-pill">⭐ MAIS RECOMENDADO</div>
+          <div class="plan-label">Acesso vitalício</div>
+          <div class="plan-price">R$ 87,90 <span class="plan-price-sub">único</span></div>
+          <div class="plan-desc">Pague uma vez. Use para sempre. Nunca mais uma cobrança surpresa.</div>
+          <ul class="plan-list">
+            <li><span class="ic">✓</span>Tudo do plano anual</li>
+            <li><span class="ic">✓</span>Acesso eterno, sem recorrência</li>
+            <li><span class="ic">✓</span>Todos os recursos futuros incluídos</li>
+            <li><span class="ic">✓</span>Relatório PDF para o pediatra</li>
+            <li><span class="ic">✓</span>Prioridade em novos lançamentos</li>
+          </ul>
+          <button class="btn-plan primary">Quero acesso vitalício</button>
+        </div>
+      </div>
+
+      <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:16px;">
+        Pagamento seguro via Pix, cartão de crédito ou boleto · Acesso imediato após confirmação
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     GARANTIA
+═══════════════════════════════════════════ -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="guarantee">
+        <div class="guarantee-icon">🛡️</div>
+        <div>
+          <h3>Garantia incondicional de 7 dias</h3>
+          <p>Se por qualquer motivo o Maternar não for pra você, devolvemos 100% do valor. Sem perguntas, sem
+            burocracia, sem formulário de 10 campos. Você manda uma mensagem e pronto. O risco é todo nosso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Perguntas frequentes</span>
+
+      <div class="faq-item">
+        <div class="faq-q">Funciona para bebê de qualquer idade até 4 anos?</div>
+        <div class="faq-a">Sim. O app cobre desde o nascimento com cobertura total do calendário PNI e marcos de
+          desenvolvimento até os 4 anos. Você cadastra a data de nascimento do bebê e tudo se ajusta automaticamente.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso ter mais de um bebê no mesmo app?</div>
+        <div class="faq-a">Sim. Você pode cadastrar múltiplos bebês e alternar entre eles na tela inicial. Cada bebê tem
+          seu próprio histórico, calendário de vacinas e diário.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">O pai ou a babá podem usar junto comigo?</div>
+        <div class="faq-a">Sim. A Rede de Apoio permite que você convide até 2 pessoas por e-mail. Tudo que elas
+          registrarem aparece no seu celular em tempo real — sem precisar ligar pra checar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">O app substitui o acompanhamento do pediatra?</div>
+        <div class="faq-a">Não, e jamais vai substituir. O Maternar organiza informações e te ajuda a ser uma mãe mais
+          presente e preparada nas consultas — mas o diagnóstico e o acompanhamento médico sempre serão do pediatra.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Funciona sem internet?</div>
+        <div class="faq-a">Os registros rápidos (diário, dose dada) funcionam offline. A sincronização com a rede de
+          apoio e os alertas de push precisam de conexão.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">O que acontece com meus dados se eu cancelar?</div>
+        <div class="faq-a">No plano vitalício você nunca cancela — o acesso é permanente. No plano anual, se você não
+          renovar, seus dados ficam salvos por 30 dias para que você possa exportar o relatório antes de perder o
+          acesso.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Qual a diferença real entre o anual e o vitalício?</div>
+        <div class="faq-a">No plano anual, após o primeiro ano você paga novamente R$ 47,90. No vitalício você paga R$
+          87,90 uma única vez e nunca mais. Em menos de 2 anos o vitalício já se paga — e você ainda leva todos os
+          recursos futuros sem pagar nada a mais.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="final-cta">
+        <h2>Sua filha merece uma mãe organizada.<br>Você merece uma mente em paz.</h2>
+        <p>Por menos do que uma consulta particular custa, você tem tudo que precisa pra nunca mais errar uma vacina,
+          uma dose ou uma consulta. Para sempre.</p>
+        <a href="#planos" class="cta-btn cta-btn--white">Quero o acesso vitalício por R$ 87,90</a>
+        <p class="cta-sub-text" style="color:#9FE1CB; margin-top:12px;">Garantia de 7 dias · Acesso imediato · Sem
+          mensalidade</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
