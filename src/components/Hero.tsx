@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import homeMockup from '../assets/brand/mockup/New/home.png';
 
 export default function Hero() {
   return (
@@ -48,7 +49,7 @@ export default function Hero() {
 
           {/* Mockup de alta qualidade (home.png da pasta New) com sobreposição e inclinação */}
           <div className="phone-mockup-editorial">
-            <img src="/src/assets/brand/mockup/New/home.png" alt="Painel do Maternar App" />
+            <img src={homeMockup} alt="Painel do Maternar App" />
           </div>
         </div>
       </div>

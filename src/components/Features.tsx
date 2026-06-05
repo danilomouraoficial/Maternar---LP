@@ -1,3 +1,9 @@
+import vacinaImg from '../assets/brand/mockup/vacina.png';
+import remediosImg from '../assets/brand/mockup/New/remedios.png';
+import consultasImg from '../assets/brand/mockup/New/consultas.png';
+import jornadaImg from '../assets/brand/mockup/New/jornada.png';
+import diarioImg from '../assets/brand/mockup/diario.png';
+
 export default function Features() {
   return (
     <section id="beneficios" className="section fade-in">
@@ -36,7 +42,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // VACINAÇÃO_PNI</span>
                 <span className="blueprint-line" />
               </div>
-              <img src="/src/assets/brand/mockup/vacina.png" alt="Tela de Vacinas do Maternar App" />
+              <img src={vacinaImg} alt="Tela de Vacinas do Maternar App" />
             </div>
           </div>
 
@@ -70,7 +76,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // CALCULADORA_DOSAGEM</span>
                 <span className="blueprint-line" />
               </div>
-              <img src="/src/assets/brand/mockup/New/remedios.png" alt="Tela de Medicamentos e Diário do Maternar App" />
+              <img src={remediosImg} alt="Tela de Medicamentos e Diário do Maternar App" />
             </div>
           </div>
 
@@ -102,7 +108,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // DÚVIDAS_PEDIATRA</span>
                 <span className="blueprint-line" />
               </div>
-              <img src="/src/assets/brand/mockup/New/consultas.png" alt="Tela de Consultas do Maternar App" />
+              <img src={consultasImg} alt="Tela de Consultas do Maternar App" />
             </div>
           </div>
 
@@ -137,7 +143,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // REDE_APOIO</span>
                 <span className="blueprint-line" />
               </div>
-              <img src="/src/assets/brand/mockup/New/jornada.png" alt="Tela de Sincronização da Rede de Apoio do Maternar App" />
+              <img src={jornadaImg} alt="Tela de Sincronização da Rede de Apoio do Maternar App" />
             </div>
           </div>
 
@@ -169,7 +175,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // BEM_ESTAR_MATERNO</span>
                 <span className="blueprint-line" />
               </div>
-              <img src="/src/assets/brand/mockup/diario.png" alt="Tela de Monitor de Bem-Estar e Humor do Maternar App" />
+              <img src={diarioImg} alt="Tela de Monitor de Bem-Estar e Humor do Maternar App" />
             </div>
           </div>
         </div>
