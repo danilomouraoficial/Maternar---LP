@@ -38,7 +38,8 @@ export function captureMetaParameters() {
       if (window._lastMetaEventPath !== currentPath) {
         window._lastMetaEventPath = currentPath;
 
-        window.dataLayer.push({
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer?.push({
           event: 'meta_test_event_captured',
           metaTestEventCode: activeFbadid
         });
