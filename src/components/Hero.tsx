@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Check } from 'lucide-react';
 import homeMockup from '../assets/brand/mockup/New/home.png';
 
@@ -14,12 +14,10 @@ const HERO_IMAGES = [
 ];
 
 export default function Hero() {
-  const [selectedImage, setSelectedImage] = useState(HERO_IMAGES[1]);
-
-  useEffect(() => {
+  const [selectedImage] = useState(() => {
     const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
-    setSelectedImage(HERO_IMAGES[randomIndex]);
-  }, []);
+    return HERO_IMAGES[randomIndex];
+  });
 
   return (
     <section className="hero fade-in">
