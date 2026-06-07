@@ -25,6 +25,24 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (anchor && anchor.getAttribute('href') === '#planos' && window.innerWidth <= 768) {
+        const targetElement = document.getElementById('opcoes-planos');
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', '#opcoes-planos');
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
+  }, []);
+
+  useEffect(() => {
     // Intersection Observer para animações de fade-in no scroll
     const observerOptions = {
       root: null,

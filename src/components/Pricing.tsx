@@ -68,7 +68,7 @@ export default function Pricing() {
           </div>
 
           {/* Card 3: Plano Anual */}
-          <div className="pricing-card pricing-card--annual">
+          <div id="opcoes-planos" className="pricing-card pricing-card--annual">
             <div className="plan-panel-header">
               <span className="plan-tag">PLANO ANUAL</span>
               <h3 className="plan-name">Acesso Anual</h3>
