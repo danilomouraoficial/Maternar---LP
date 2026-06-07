@@ -1922,3 +1922,41 @@ details.faq-item[open] summary.faq-question::after {
     gap: 16px;
   }
 }
+
+/* ── OTIMIZAÇÕES DE PERFORMANCE MOBILE ── */
+@media (max-width: 768px) {
+  /* Desativa transições e animações CSS para economizar processamento e bateria */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Garante exibição imediata sem efeitos de transição/opacidade do Intersection Observer */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Desativa transformações de hover tridimensionais para evitar lentidão e comportamentos 'presos' no touch screen */
+  .btn:hover,
+  .btn--dark:hover,
+  .btn--outline:hover,
+  .nav-btn:hover,
+  .phone-mockup-editorial:hover,
+  .pain-editorial-card:hover,
+  .benefit-visual:hover,
+  .benefit-visual:hover img,
+  .qual-card--yes:hover,
+  .qual-card--no:hover,
+  .bonus-card:hover,
+  .carousel-nav-btn:hover,
+  .testi-card:hover,
+  .plan-btn-action--outline:hover,
+  .plan-btn-action--filled:hover,
+  .closing-guarantee:hover {
+    transform: none !important;
+    box-shadow: var(--card-shadow) !important;
+  }
+}

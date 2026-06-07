@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Pain from './components/Pain';
@@ -13,6 +14,16 @@ import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   useEffect(() => {
     // Intersection Observer para animações de fade-in no scroll
     const observerOptions = {
@@ -41,7 +52,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
       <Navbar />
       <Hero />
       <Pain />
@@ -54,7 +65,7 @@ function App() {
       <FAQ />
       <FinalCTA />
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
 

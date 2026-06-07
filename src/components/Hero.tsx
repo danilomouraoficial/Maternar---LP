@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
-import homeMockup from '../assets/brand/mockup/New/home.png';
+import homeMockup from '../assets/brand/mockup/New/home.webp';
 
 const HERO_IMAGES = [
   {
-    src: '/img1.png',
+    src: '/img1.webp',
     alt: 'Mãe abraçando seu bebê com carinho em um momento de afeto e conexão'
   },
   {
-    src: '/img2.png',
+    src: '/img2.webp',
     alt: 'Mãe beijando seu bebê com carinho em um ambiente aconchegante e ensolarado'
   }
 ];
@@ -61,12 +61,12 @@ export default function Hero() {
           <div className="hero-visual-bg-card" aria-hidden="true" />
           
           <div className="hero-image-wrapper-editorial">
-            <img src={selectedImage.src} alt={selectedImage.alt} />
+            <img src={selectedImage.src} alt={selectedImage.alt} fetchPriority="high" />
           </div>
 
-          {/* Mockup de alta qualidade (home.png da pasta New) com sobreposição e inclinação */}
+          {/* Mockup de alta qualidade (home.webp da pasta New) com sobreposição e inclinação */}
           <div className="phone-mockup-editorial">
-            <img src={homeMockup} alt="Painel do Maternar App" />
+            <img src={homeMockup} alt="Painel do Maternar App" fetchPriority="high" />
           </div>
         </div>
       </div>
