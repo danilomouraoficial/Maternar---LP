@@ -1960,3 +1960,175 @@ details.faq-item[open] summary.faq-question::after {
     box-shadow: var(--card-shadow) !important;
   }
 }
+
+/* ── PAGINA DE OBRIGADO ── */
+.obrigado-section {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 10% 20%, rgba(222, 107, 122, 0.04) 0%, transparent 45%),
+              radial-gradient(circle at 90% 80%, rgba(20, 74, 65, 0.04) 0%, transparent 45%);
+}
+
+.obrigado-container {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.obrigado-header {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.obrigado-card {
+  background: var(--white);
+  padding: 56px 48px;
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(11, 40, 35, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.obrigado-intro {
+  margin-bottom: 28px;
+  color: var(--text-muted);
+}
+
+.obrigado-email-box {
+  background-color: var(--green-pale);
+  border: 1px dashed rgba(20, 74, 65, 0.2);
+  border-radius: 4px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.obrigado-email-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.obrigado-email-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.obrigado-email-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--green-sage);
+}
+
+.obrigado-email-value {
+  font-size: 16px;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.obrigado-steps {
+  margin: 32px 0;
+  border-top: 1px solid rgba(11, 40, 35, 0.06);
+  padding-top: 32px;
+}
+
+.obrigado-steps-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green-sage);
+  margin-bottom: 24px;
+}
+
+.obrigado-steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.obrigado-step-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.obrigado-step-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.obrigado-step-text {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.obrigado-step-subtext {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.obrigado-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  border-top: 1px solid rgba(11, 40, 35, 0.06);
+  padding-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .obrigado-section {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+  
+  .obrigado-card {
+    padding: 36px 24px;
+  }
+  
+  .obrigado-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .obrigado-actions .btn {
+    width: 100%;
+  }
+}

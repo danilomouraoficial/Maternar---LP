@@ -12,13 +12,43 @@ import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import Obrigado from './components/Obrigado';
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false);
+  const [isObrigado, setIsObrigado] = useState(() => {
+    return typeof window !== 'undefined' && window.location.pathname === '/obrigado';
+  });
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setIsObrigado(window.location.pathname === '/obrigado');
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+
+    // Dynamic state interception for pushState / replaceState (SPA-like routing)
+    const originalPushState = history.pushState;
+    history.pushState = function (...args) {
+      originalPushState.apply(this, args);
+      handleLocationChange();
+    };
+
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function (...args) {
+      originalReplaceState.apply(this, args);
+      handleLocationChange();
+    };
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      history.pushState = originalPushState;
+      history.replaceState = originalReplaceState;
+    };
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
-    setIsMobile(mediaQuery.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
@@ -68,6 +98,14 @@ function App() {
       observer.disconnect();
     };
   }, []);
+
+  if (isObrigado) {
+    return (
+      <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
+        <Obrigado />
+      </MotionConfig>
+    );
+  }
 
   return (
     <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
