@@ -15,7 +15,7 @@ export default function Pricing() {
 
         {/* Layout Bento Grid de Preços */}
         <div className="pricing-master-container">
-          
+
           {/* Card 1: Comparativo de Mercado */}
           <div className="pricing-card pricing-card--comparison">
             <div className="ledger-header">
@@ -29,11 +29,11 @@ export default function Pricing() {
               </div>
               <h3 className="ledger-title">Comparativo de Mercado</h3>
             </div>
-            
+
             <p className="ledger-subtitle">
               Contratando ferramentas individuais separadas versus a assinatura unificada Maternar:
             </p>
-            
+
             <div className="ledger-table">
               <div className="ledger-row">
                 <span>App premium de vacinas</span>
@@ -108,13 +108,13 @@ export default function Pricing() {
               </li>
             </ul>
 
-            <a href="https://pay.kiwify.com.br/1QraVr7" className="plan-btn-action plan-btn-action--outline">Começar Plano Anual</a>
+            <a href="https://pay.cakto.com.br/thv5jij_918353" className="plan-btn-action plan-btn-action--outline">Começar Plano Anual</a>
           </div>
 
           {/* Card 4: Plano Vitalício */}
           <div className="pricing-card pricing-card--lifetime">
             <span className="plan-badge-ribbon">Mais Inteligente</span>
-            
+
             <div className="plan-panel-header">
               <span className="plan-tag plan-tag--accent">PAGUE UMA ÚNICA VEZ</span>
               <h3 className="plan-name">Acesso Vitalício</h3>
@@ -154,7 +154,7 @@ export default function Pricing() {
               </li>
             </ul>
 
-            <a href="https://pay.kiwify.com.br/qqFVfMV" className="plan-btn-action plan-btn-action--filled">Garantir Acesso Vitalício</a>
+            <a href="https://pay.cakto.com.br/8nhuewm" className="plan-btn-action plan-btn-action--filled">Garantir Acesso Vitalício</a>
           </div>
 
         </div>
