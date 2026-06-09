@@ -42,7 +42,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // VACINAÇÃO_PNI</span>
                 <span className="blueprint-line" />
               </div>
-              <img src={vacinaImg} alt="Tela de Vacinas do Maternar App" loading="lazy" />
+              <img src={vacinaImg} alt="Tela de Vacinas do Maternar App" loading="lazy" width={484} height={1000} />
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // CALCULADORA_DOSAGEM</span>
                 <span className="blueprint-line" />
               </div>
-              <img src={remediosImg} alt="Tela de Medicamentos e Diário do Maternar App" loading="lazy" />
+              <img src={remediosImg} alt="Tela de Medicamentos e Diário do Maternar App" loading="lazy" width={800} height={800} />
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // DÚVIDAS_PEDIATRA</span>
                 <span className="blueprint-line" />
               </div>
-              <img src={consultasImg} alt="Tela de Consultas do Maternar App" loading="lazy" />
+              <img src={consultasImg} alt="Tela de Consultas do Maternar App" loading="lazy" width={800} height={800} />
             </div>
           </div>
 
@@ -143,7 +143,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // REDE_APOIO</span>
                 <span className="blueprint-line" />
               </div>
-              <img src={jornadaImg} alt="Tela de Sincronização da Rede de Apoio do Maternar App" loading="lazy" />
+              <img src={jornadaImg} alt="Tela de Sincronização da Rede de Apoio do Maternar App" loading="lazy" width={800} height={800} />
             </div>
           </div>
 
@@ -175,7 +175,7 @@ export default function Features() {
                 <span className="blueprint-tag">MOCKUP_SCREEN // BEM_ESTAR_MATERNO</span>
                 <span className="blueprint-line" />
               </div>
-              <img src={diarioImg} alt="Tela de Monitor de Bem-Estar e Humor do Maternar App" loading="lazy" />
+              <img src={diarioImg} alt="Tela de Monitor de Bem-Estar e Humor do Maternar App" loading="lazy" width={484} height={1000} />
             </div>
           </div>
         </div>

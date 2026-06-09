@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Pain from './components/Pain';
 import Pullquote from './components/Pullquote';
 import Features from './components/Features';
-import ForWho from './components/ForWho';
-import Bonuses from './components/Bonuses';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
-import Obrigado from './components/Obrigado';
+
+// Lazy loaded components (Code Splitting)
+const Obrigado = lazy(() => import('./components/Obrigado'));
+const ForWho = lazy(() => import('./components/ForWho'));
+const Bonuses = lazy(() => import('./components/Bonuses'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Pricing = lazy(() => import('./components/Pricing'));
+const FAQ = lazy(() => import('./components/FAQ'));
 
 function App() {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false);
@@ -102,7 +104,9 @@ function App() {
   if (isObrigado) {
     return (
       <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
-        <Obrigado />
+        <Suspense fallback={<div className="min-h-screen bg-[#FCFAF5]" />}>
+          <Obrigado />
+        </Suspense>
       </MotionConfig>
     );
   }
@@ -114,11 +118,13 @@ function App() {
       <Pain />
       <Pullquote />
       <Features />
-      <ForWho />
-      <Bonuses />
-      <Testimonials />
-      <Pricing />
-      <FAQ />
+      <Suspense fallback={null}>
+        <ForWho />
+        <Bonuses />
+        <Testimonials />
+        <Pricing />
+        <FAQ />
+      </Suspense>
       <FinalCTA />
       <Footer />
     </MotionConfig>

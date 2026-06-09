@@ -45,7 +45,7 @@ export default function Obrigado() {
         {/* Header containing only the Logo for maximum focus */}
         <div className="obrigado-header">
           <a href="/" className="logo-container">
-            <img src={logoHorizontal} alt="Maternar" className="logo-img" />
+            <img src={logoHorizontal} alt="Maternar" className="logo-img" width={109} height={32} />
           </a>
         </div>
 

@@ -61,12 +61,12 @@ export default function Hero() {
           <div className="hero-visual-bg-card" aria-hidden="true" />
           
           <div className="hero-image-wrapper-editorial">
-            <img src={selectedImage.src} alt={selectedImage.alt} fetchPriority="high" />
+            <img src={selectedImage.src} alt={selectedImage.alt} fetchPriority="high" width={1200} height={675} />
           </div>
 
           {/* Mockup de alta qualidade (home.webp da pasta New) com sobreposição e inclinação */}
           <div className="phone-mockup-editorial">
-            <img src={homeMockup} alt="Painel do Maternar App" fetchPriority="high" />
+            <img src={homeMockup} alt="Painel do Maternar App" fetchPriority="high" width={800} height={800} />
           </div>
         </div>
       </div>
