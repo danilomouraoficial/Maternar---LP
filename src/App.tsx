@@ -82,8 +82,6 @@ function App() {
       rootMargin: '0px 0px -50px 0px',
     };
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -93,11 +91,37 @@ function App() {
       });
     }, observerOptions);
 
-    fadeElements.forEach((el) => observer.observe(el));
+    // Como alguns componentes são carregados com lazy loading (Suspense),
+    // precisamos monitorar a inserção de novos elementos .fade-in no DOM.
+    const observedElements = new WeakSet<Element>();
+    
+    const observeNewElements = () => {
+      const fadeElements = document.querySelectorAll('.fade-in:not(.visible)');
+      fadeElements.forEach((el) => {
+        if (!observedElements.has(el)) {
+          observer.observe(el);
+          observedElements.add(el);
+        }
+      });
+    };
 
-    // Cleanup observer on unmount
+    // Observa os elementos já presentes no DOM inicial
+    observeNewElements();
+
+    // Monitora novas renderizações/montagens de elementos lazy-loaded
+    const mutationObserver = new MutationObserver(() => {
+      observeNewElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Cleanup observers on unmount
     return () => {
       observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
 
