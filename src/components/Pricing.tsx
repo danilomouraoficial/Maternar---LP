@@ -1,6 +1,96 @@
+import { useState, useEffect, useRef } from 'react';
+import { ShieldCheck } from 'lucide-react';
+
 export default function Pricing() {
+  const [annualSpots, setAnnualSpots] = useState(17);
+  const [lifetimeSpots, setLifetimeSpots] = useState(8);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isFirstDropRef = useRef(true);
+
+  // IntersectionObserver to activate countdown when visible
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if ('IntersectionObserver' in window && sectionRef.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              if (observer) {
+                observer.unobserve(entry.target);
+              }
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(sectionRef.current);
+    } else {
+      setIsVisible(true);
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
+  // Countdown timer logic
+  useEffect(() => {
+    if (!isVisible) return;
+    if (annualSpots <= 4 && lifetimeSpots <= 2) return;
+
+    let delay: number;
+    if (isFirstDropRef.current) {
+      // First drop happens almost immediately (2 to 4 seconds)
+      delay = Math.floor(Math.random() * (4000 - 2000 + 1)) + 2000;
+    } else {
+      // Calculate delay based on proximity to minimum limits
+      const annualRemaining = annualSpots - 4; // 0 to 13
+      const lifetimeRemaining = lifetimeSpots - 2; // 0 to 6
+      const totalRemaining = annualRemaining + lifetimeRemaining; // 0 to 19
+      const maxRemaining = 19;
+      const ratio = totalRemaining / maxRemaining; // 1.0 down to 0.0
+
+      if (ratio > 0.6) {
+        // Fast range: 5 to 12 seconds when there are many spots left
+        delay = Math.floor(Math.random() * (12000 - 5000 + 1)) + 5000;
+      } else if (ratio > 0.3) {
+        // Medium range: 15 to 30 seconds
+        delay = Math.floor(Math.random() * (30000 - 15000 + 1)) + 15000;
+      } else {
+        // Slow range (near the end): 45 to 80 seconds
+        delay = Math.floor(Math.random() * (80000 - 45000 + 1)) + 45000;
+      }
+    }
+
+    const timer = setTimeout(() => {
+      isFirstDropRef.current = false;
+
+      const canDecAnnual = annualSpots > 4;
+      const canDecLifetime = lifetimeSpots > 2;
+
+      if (canDecAnnual && canDecLifetime) {
+        // Randomly choose one, biasing slightly towards annual since it has more starting spots
+        const rand = Math.random();
+        if (rand < 0.65) {
+          setAnnualSpots((prev) => prev - 1);
+        } else {
+          setLifetimeSpots((prev) => prev - 1);
+        }
+      } else if (canDecAnnual) {
+        setAnnualSpots((prev) => prev - 1);
+      } else if (canDecLifetime) {
+        setLifetimeSpots((prev) => prev - 1);
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [isVisible, annualSpots, lifetimeSpots]);
+
   return (
-    <section id="planos" className="pricing-section fade-in">
+    <section id="planos" ref={sectionRef} className="pricing-section fade-in">
       <div className="container">
         {/* Top Editorial Header */}
         <div className="pricing-header-editorial">
@@ -9,65 +99,14 @@ export default function Pricing() {
             Um porto seguro para a rotina do seu{"\u00a0"}bebê
           </h2>
           <p className="pricing-subtitle-editorial">
-            Em vez de pagar assinaturas separadas para o controle de vacinas, remédios e diário de sono, centralize tudo em uma ferramenta única.
+            Centralize vacinas, rotinas de sono, amamentação e cuidados do bebê em um só lugar. <br className="desktop-only-br" />Escolha o plano ideal e garanta mais tranquilidade hoje.
           </p>
         </div>
 
-        {/* Layout Bento Grid de Preços */}
+        {/* Layout de Preços simplificado (2 colunas) */}
         <div className="pricing-master-container">
 
-          {/* Card 1: Comparativo de Mercado */}
-          <div className="pricing-card pricing-card--comparison">
-            <div className="ledger-header">
-              <div className="ledger-icon-wrapper">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="12" y1="2" x2="12" y2="22"></line>
-                  <line x1="5" y1="7" x2="19" y2="7"></line>
-                  <path d="M5 7L2 17h6L5 7z"></path>
-                  <path d="M19 7l-3 10h6l-3-10z"></path>
-                </svg>
-              </div>
-              <h3 className="ledger-title">Comparativo de Mercado</h3>
-            </div>
-
-            <p className="ledger-subtitle">
-              Contratando ferramentas individuais separadas versus a assinatura unificada Maternar:
-            </p>
-
-            <div className="ledger-table">
-              <div className="ledger-row">
-                <span>App premium de vacinas</span>
-                <span>R$ 49,90/ano</span>
-              </div>
-              <div className="ledger-row">
-                <span>App premium de rotinas do bebê</span>
-                <span>R$ 79,90/ano</span>
-              </div>
-              <div className="ledger-row">
-                <span>Diário de saúde mental materno</span>
-                <span>R$ 59,90/ano</span>
-              </div>
-              <div className="ledger-row ledger-row--total">
-                <span>Custo se contratados separados</span>
-                <span className="ledger-price-old">R$ 189,70/ano</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2: Selo de Segurança Bento (Standalone) */}
-          <div className="pricing-card pricing-card--security">
-            <div className="security-icon-wrapper">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <polyline points="9 11 11 13 15 9"></polyline>
-              </svg>
-            </div>
-            <span className="security-text">
-              Compra 100% Segura. Garantia de 7 dias ou seu dinheiro de volta.
-            </span>
-          </div>
-
-          {/* Card 3: Plano Anual */}
+          {/* Card 1: Plano Anual */}
           <div id="opcoes-planos" className="pricing-card pricing-card--annual">
             <div className="plan-panel-header">
               <span className="plan-tag">PLANO ANUAL</span>
@@ -76,7 +115,7 @@ export default function Pricing() {
                 <span className="price-number">R$ 47,90</span>
                 <span className="price-period">/ano</span>
               </div>
-              <p className="plan-discount">Equivale a menos de R$ 4,00 por mês. Renovação automática.</p>
+              <p className="plan-discount">Equivale a menos de R$ 4,00 por mês. Renovação{"\u00a0"}automática.</p>
             </div>
 
             <div className="plan-divider" />
@@ -98,7 +137,25 @@ export default function Pricing() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                <span>Alertas automáticos de vacinação</span>
+                <span><strong>Bônus:</strong> Biblioteca Maternar completa</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span><strong>Bônus:</strong> Exercícios de ancoragem mental</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span><strong>Bônus:</strong> Tabela de dosagens pediátricas</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Alertas de vacinas e consultas</span>
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -108,10 +165,20 @@ export default function Pricing() {
               </li>
             </ul>
 
-            <a href="https://pay.cakto.com.br/thv5jij_918353" className="plan-btn-action plan-btn-action--outline">Começar Plano Anual</a>
+            <div className="plan-scarcity">
+              <span className="scarcity-dot" />
+              <span>Restam apenas {annualSpots} vagas com valor promocional</span>
+            </div>
+
+            <a href="https://pay.cakto.com.br/thv5jij_918353" className="plan-btn-action plan-btn-action--green">Começar Plano Anual</a>
+            
+            <div className="plan-reassurance">
+              <ShieldCheck size={13} strokeWidth={2.5} className="reassurance-icon" />
+              <span>Compra 100% segura • 7 dias de garantia</span>
+            </div>
           </div>
 
-          {/* Card 4: Plano Vitalício */}
+          {/* Card 2: Plano Vitalício */}
           <div className="pricing-card pricing-card--lifetime">
             <span className="plan-badge-ribbon">Mais Inteligente</span>
 
@@ -144,6 +211,24 @@ export default function Pricing() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
+                <span><strong>Bônus:</strong> Biblioteca Maternar completa</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span><strong>Bônus:</strong> Exercícios de ancoragem mental</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span><strong>Bônus:</strong> Tabela de dosagens + Contatos de emergência</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 <span>Exportação de relatórios PDF ilimitados</span>
               </li>
               <li>
@@ -154,7 +239,17 @@ export default function Pricing() {
               </li>
             </ul>
 
+            <div className="plan-scarcity plan-scarcity--dark">
+              <span className="scarcity-dot scarcity-dot--dark" />
+              <span>Restam apenas {lifetimeSpots} vagas com valor promocional único</span>
+            </div>
+
             <a href="https://pay.cakto.com.br/8nhuewm" className="plan-btn-action plan-btn-action--filled">Garantir Acesso Vitalício</a>
+            
+            <div className="plan-reassurance plan-reassurance--dark">
+              <ShieldCheck size={13} strokeWidth={2.5} className="reassurance-icon" />
+              <span>Compra 100% segura • 7 dias de garantia</span>
+            </div>
           </div>
 
         </div>
