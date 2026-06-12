@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
-import homeMockup from '../assets/brand/mockup/New/home.webp';
+import homeMockup from '../assets/brand/mockup/home.webp';
 
 const HERO_IMAGES = [
   {

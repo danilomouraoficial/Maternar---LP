@@ -14,6 +14,7 @@ const ForWho = lazy(() => import('./components/ForWho'));
 const Bonuses = lazy(() => import('./components/Bonuses'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const Pricing = lazy(() => import('./components/Pricing'));
+const Warranty = lazy(() => import('./components/Warranty'));
 const FAQ = lazy(() => import('./components/FAQ'));
 
 function App() {
@@ -147,6 +148,7 @@ function App() {
         <Bonuses />
         <Testimonials />
         <Pricing />
+        <Warranty />
         <FAQ />
       </Suspense>
       <FinalCTA />
