@@ -8,13 +8,35 @@
   <link rel="preconnect" href="https://connect.facebook.net">
   <link rel="dns-prefetch" href="https://connect.facebook.net">
 
-  <!-- Google Tag Manager -->
+  <!-- Preload da imagem LCP (Hero Image) para renderização ultra-rápida no mobile -->
+  <link rel="preload" as="image" href="/img1.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/img2.webp" fetchpriority="high">
+
+  <!-- Google Tag Manager (Carregamento Inteligente Otimizado) -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PRB3Z72M');
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PRB3Z72M');
+      }
+      
+      // Carrega GTM após 1.5 segundos da leitura do HTML (evita travar renderização inicial)
+      setTimeout(loadGTM, 1500);
+
+      // Ou carrega imediatamente se o usuário interagir antes disso
+      if (window.addEventListener) {
+        var activityEvents = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
+        activityEvents.forEach(function(e) {
+          window.addEventListener(e, loadGTM, { passive: true, once: true });
+        });
+      }
+    })();
   </script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
