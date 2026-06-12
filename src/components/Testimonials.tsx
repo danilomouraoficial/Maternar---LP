@@ -7,9 +7,9 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from '@/components/ui/carousel';
-import dep1 from '../assets/depoimentos/dep-01.png';
-import dep2 from '../assets/depoimentos/dep-02.png';
-import dep3 from '../assets/depoimentos/dep-03.png';
+import dep1 from '../assets/depoimentos/dep-01.webp';
+import dep2 from '../assets/depoimentos/dep-02.webp';
+import dep3 from '../assets/depoimentos/dep-03.webp';
 
 const TESTIMONIAL_IMAGES = [
   { id: 1, src: dep1 },

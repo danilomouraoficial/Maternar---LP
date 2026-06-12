@@ -1,4 +1,4 @@
-import warrantySeal from '../assets/selo-garantia.png';
+import warrantySeal from '../assets/selo-garantia.webp';
 
 export default function Warranty() {
   return (

@@ -1,10 +1,10 @@
-import card1Img from '../assets/brand/mockup/card app 1.png';
-import card2Img from '../assets/brand/mockup/card app 2.png';
-import card3Img from '../assets/brand/mockup/card app 3.png';
-import card4Img from '../assets/brand/mockup/card app 4.png';
-import card5Img from '../assets/brand/mockup/card app 5.png';
-import card6Img from '../assets/brand/mockup/card app 6.png';
-import card7Img from '../assets/brand/mockup/card app 7.png';
+import card1Img from '../assets/brand/mockup/card app 1.webp';
+import card2Img from '../assets/brand/mockup/card app 2.webp';
+import card3Img from '../assets/brand/mockup/card app 3.webp';
+import card4Img from '../assets/brand/mockup/card app 4.webp';
+import card5Img from '../assets/brand/mockup/card app 5.webp';
+import card6Img from '../assets/brand/mockup/card app 6.webp';
+import card7Img from '../assets/brand/mockup/card app 7.webp';
 import { Check } from 'lucide-react';
 
 const FEATURES_DATA = [

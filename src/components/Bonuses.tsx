@@ -1,7 +1,7 @@
-import bonus1Img from '../assets/brand/mockup/mkp bonus 1.png';
-import bonus2Img from '../assets/brand/mockup/mkp bonus 2.png';
-import bonus3Img from '../assets/brand/mockup/mkp bonus 3.png';
-import bonus4Img from '../assets/brand/mockup/mkp bonus 4.png';
+import bonus1Img from '../assets/brand/mockup/mkp bonus 1.webp';
+import bonus2Img from '../assets/brand/mockup/mkp bonus 2.webp';
+import bonus3Img from '../assets/brand/mockup/mkp bonus 3.webp';
+import bonus4Img from '../assets/brand/mockup/mkp bonus 4.webp';
 import { ShieldCheck } from 'lucide-react';
 
 const BONUSES_DATA = [
