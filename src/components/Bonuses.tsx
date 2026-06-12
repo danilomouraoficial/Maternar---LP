@@ -60,7 +60,7 @@ export default function Bonuses() {
           {BONUSES_DATA.map((bonus) => (
             <div key={bonus.id} className="bonus-card">
               <div className="bonus-visual">
-                <img src={bonus.image} alt={bonus.alt} loading="lazy" width={200} height={200} />
+                <img src={bonus.image} alt={bonus.alt} loading="lazy" width={270} height={222} />
               </div>
               <div className="bonus-info">
                 <h3 className="bonus-title">{bonus.title}</h3>

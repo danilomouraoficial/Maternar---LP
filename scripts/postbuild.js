@@ -21,9 +21,18 @@ async function run() {
   const html = fs.readFileSync(htmlPath, 'utf8');
   console.log('Extracting critical CSS using critters...');
   try {
-    const inlinedHtml = await critters.process(html);
+    let inlinedHtml = await critters.process(html);
+
+    // Make the noscript fallback clean (run first to avoid matching inside linkRegex)
+    const noscriptRegex = /<noscript><link rel="stylesheet" (crossorigin )?href="([^"]+)" onload="this\.rel='stylesheet'"><\/noscript>/g;
+    inlinedHtml = inlinedHtml.replace(noscriptRegex, '<noscript><link rel="stylesheet" $1href="$2"></noscript>');
+
+    // Make the main stylesheet load asynchronously using media="print"
+    const linkRegex = /<link rel="stylesheet" (crossorigin )?href="([^"]+)" onload="this\.rel='stylesheet'">/g;
+    inlinedHtml = inlinedHtml.replace(linkRegex, '<link rel="stylesheet" $1href="$2" media="print" onload="this.media=\'all\'">');
+
     fs.writeFileSync(htmlPath, inlinedHtml, 'utf8');
-    console.log('Successfully inlined critical CSS into dist/index.html!');
+    console.log('Successfully inlined critical CSS and optimized style loading into dist/index.html!');
   } catch (err) {
     console.error('Critters failed to process html:', err);
     process.exit(1);

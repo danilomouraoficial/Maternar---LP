@@ -2,6 +2,7 @@ import { useEffect, useState, Suspense, lazy } from 'react';
 import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import LazySection from './components/LazySection';
 
 // Lazy loaded components (Code Splitting)
 const Pain = lazy(() => import('./components/Pain'));
@@ -140,19 +141,17 @@ function App() {
     <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
       <Navbar />
       <Hero />
-      <Suspense fallback={null}>
-        <Pain />
-        <Pullquote />
-        <Features />
-        <ForWho />
-        <Bonuses />
-        <Testimonials />
-        <Pricing />
-        <Warranty />
-        <FAQ />
-        <FinalCTA />
-        <Footer />
-      </Suspense>
+      <LazySection height="500px"><Pain /></LazySection>
+      <LazySection height="250px"><Pullquote /></LazySection>
+      <LazySection height="600px"><Features /></LazySection>
+      <LazySection height="500px"><ForWho /></LazySection>
+      <LazySection height="600px"><Bonuses /></LazySection>
+      <LazySection height="600px"><Testimonials /></LazySection>
+      <LazySection height="800px"><Pricing /></LazySection>
+      <LazySection height="400px"><Warranty /></LazySection>
+      <LazySection height="500px"><FAQ /></LazySection>
+      <LazySection height="350px"><FinalCTA /></LazySection>
+      <LazySection height="200px"><Footer /></LazySection>
     </MotionConfig>
   );
 }

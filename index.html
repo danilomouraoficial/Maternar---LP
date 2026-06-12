@@ -3,42 +3,51 @@
 
 <head>
   <!-- Pre-conexões para otimização de velocidade (WP Rocket Style) -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://connect.facebook.net">
   <link rel="dns-prefetch" href="https://connect.facebook.net">
 
   <!-- Preload da imagem LCP (Hero Image) para renderização ultra-rápida no mobile -->
   <link rel="preload" as="image" href="/img1.webp" fetchpriority="high">
   <link rel="preload" as="image" href="/img2.webp" fetchpriority="high">
 
-  <!-- Google Tag Manager (Carregamento Inteligente Otimizado) -->
+  <!-- Scripts de Rastreamento (Carregamento Inteligente Otimizado - GTM & UTMify) -->
   <script>
     (function() {
-      var gtmLoaded = false;
-      function loadGTM() {
-        if (gtmLoaded) return;
-        gtmLoaded = true;
+      var scriptsLoaded = false;
+      function loadScripts() {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+        
+        // 1. Google Tag Manager
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-PRB3Z72M');
+
+        // 2. UTMify Script
+        var utmScript = document.createElement('script');
+        utmScript.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+        utmScript.setAttribute('data-utmify-prevent-xcod-sck', '');
+        utmScript.setAttribute('data-utmify-prevent-subids', '');
+        utmScript.async = true;
+        utmScript.defer = true;
+        document.head.appendChild(utmScript);
       }
       
-      // Carrega GTM após 1.5 segundos da leitura do HTML (evita travar renderização inicial)
-      setTimeout(loadGTM, 1500);
+      // Carrega após 2.0 segundos (evita travar renderização inicial no mobile)
+      setTimeout(loadScripts, 2000);
 
       // Ou carrega imediatamente se o usuário interagir antes disso
       if (window.addEventListener) {
         var activityEvents = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
         activityEvents.forEach(function(e) {
-          window.addEventListener(e, loadGTM, { passive: true, once: true });
+          window.addEventListener(e, loadScripts, { passive: true, once: true });
         });
       }
     })();
   </script>
-  <!-- End Google Tag Manager -->
+  <!-- End Scripts de Rastreamento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -114,14 +123,6 @@
   }
   </script>
 
-  <!-- UTMify Script -->
-  <script
-    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-    data-utmify-prevent-xcod-sck
-    data-utmify-prevent-subids
-    async
-    defer
-  ></script>
 </head>
 
 <body>
