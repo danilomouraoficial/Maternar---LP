@@ -83,7 +83,7 @@ export default function Bonuses() {
           <div className="bonus-banner-divider" />
           <div className="bonus-banner-right">
             <div className="bonus-balloon">Você não está sozinha. ♡</div>
-            <img src="/img1.webp" alt="Mãe e bebê" className="bonus-avatar" />
+            <img src="/img1.webp" alt="Mãe e bebê" className="bonus-avatar" width={48} height={48} loading="lazy" />
           </div>
         </div>
       </div>

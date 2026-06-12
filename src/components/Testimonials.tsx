@@ -68,7 +68,7 @@ export default function Testimonials() {
             {TESTIMONIAL_IMAGES.map((item) => (
               <CarouselItem key={item.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-8">
                 <div className="testi-img-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-[#0B2823]/8 transition-all duration-300 bg-white">
-                  <img src={item.src} alt={`Depoimento de cliente Maternar ${item.id}`} className="w-full h-auto block" loading="lazy" />
+                  <img src={item.src} alt={`Depoimento de cliente Maternar ${item.id}`} className="w-full h-auto block" loading="lazy" width={654} height={807} />
                 </div>
               </CarouselItem>
             ))}

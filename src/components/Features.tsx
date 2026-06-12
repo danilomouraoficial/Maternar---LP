@@ -147,7 +147,7 @@ export default function Features() {
           {FEATURES_DATA.map((feature) => (
             <div key={feature.id} className="benefit-item">
               <div className="benefit-visual">
-                <img src={feature.image} alt={feature.alt} loading="lazy" width={600} height={400} />
+                <img src={feature.image} alt={feature.alt} loading="lazy" width={470} height={350} />
               </div>
               <div className="benefit-content">
                 <h3 className="benefit-title">{feature.title}</h3>

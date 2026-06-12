@@ -11,6 +11,8 @@ export default function Warranty() {
               alt="Selo de Garantia Incondicional de 7 dias" 
               className="warranty-seal-img"
               loading="lazy"
+              width={600}
+              height={635}
             />
           </div>
           <div className="warranty-info-wrapper">

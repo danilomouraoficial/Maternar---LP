@@ -2,13 +2,13 @@ import { useEffect, useState, Suspense, lazy } from 'react';
 import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Pain from './components/Pain';
-import Pullquote from './components/Pullquote';
-import Features from './components/Features';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
 
 // Lazy loaded components (Code Splitting)
+const Pain = lazy(() => import('./components/Pain'));
+const Pullquote = lazy(() => import('./components/Pullquote'));
+const Features = lazy(() => import('./components/Features'));
+const FinalCTA = lazy(() => import('./components/FinalCTA'));
+const Footer = lazy(() => import('./components/Footer'));
 const Obrigado = lazy(() => import('./components/Obrigado'));
 const ForWho = lazy(() => import('./components/ForWho'));
 const Bonuses = lazy(() => import('./components/Bonuses'));
@@ -140,19 +140,19 @@ function App() {
     <MotionConfig reducedMotion={isMobile ? "always" : "user"}>
       <Navbar />
       <Hero />
-      <Pain />
-      <Pullquote />
-      <Features />
       <Suspense fallback={null}>
+        <Pain />
+        <Pullquote />
+        <Features />
         <ForWho />
         <Bonuses />
         <Testimonials />
         <Pricing />
         <Warranty />
         <FAQ />
+        <FinalCTA />
+        <Footer />
       </Suspense>
-      <FinalCTA />
-      <Footer />
     </MotionConfig>
   );
 }

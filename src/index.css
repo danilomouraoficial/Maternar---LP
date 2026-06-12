@@ -1284,6 +1284,16 @@ h4 {
   border: none;
   cursor: pointer;
   transition: var(--transition-smooth);
+  position: relative;
+}
+
+.carousel-dot::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
 }
 
 .carousel-dot--active {
@@ -1416,7 +1426,7 @@ h4 {
 
 .pricing-subtitle-editorial {
   font-size: 16px;
-  color: rgba(252, 250, 245, 0.75);
+  color: rgba(252, 250, 245, 0.92);
   line-height: 1.6;
 }
 
@@ -1561,7 +1571,7 @@ h4 {
 
 .ledger-subtitle {
   font-size: 13.5px;
-  color: rgba(252, 250, 245, 0.75);
+  color: rgba(252, 250, 245, 0.92);
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -1679,7 +1689,7 @@ h4 {
 }
 
 .pricing-card--lifetime .price-period {
-  color: rgba(252, 250, 245, 0.6);
+  color: rgba(252, 250, 245, 0.82);
 }
 
 .plan-discount {
@@ -1718,7 +1728,7 @@ h4 {
 }
 
 .pricing-card--lifetime .plan-features-list li {
-  color: rgba(252, 250, 245, 0.85);
+  color: rgba(252, 250, 245, 0.95);
 }
 
 .plan-features-list li svg {
@@ -1973,6 +1983,9 @@ details.faq-item[open] summary.faq-question::after {
   color: var(--text-muted);
   text-decoration: none;
   transition: var(--transition-smooth);
+  display: inline-block;
+  padding: 12px 8px;
+  margin: -12px -8px;
 }
 
 .footer-links a:hover {

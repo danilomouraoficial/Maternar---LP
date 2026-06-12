@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <a href="#" className="logo-container">
-          <img src={logoHorizontal} alt="Maternar" className="logo-img" />
+          <img src={logoHorizontal} alt="Maternar" className="logo-img" width={109} height={32} loading="lazy" />
         </a>
         <p>&copy; 2026 Maternar App. Todos os direitos reservados. Esta página é de caráter institucional e publicitário
           do Maternar.</p>
