@@ -6,18 +6,28 @@ export default function Obrigado() {
   const [email] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const emailParam = params.get('email');
-      return emailParam ? decodeURIComponent(emailParam).trim() : 'seu e-mail';
+      const possibleKeys = [
+        'email',
+        'email_buyer',
+        'email_cliente',
+        'customer_email',
+        'buyer_email',
+        'client_email',
+        'emailCliente'
+      ];
+      for (const key of possibleKeys) {
+        const value = params.get(key);
+        if (value) {
+          return decodeURIComponent(value).trim();
+        }
+      }
     }
     return 'seu e-mail';
   });
 
-  const [provider] = useState<{ name: string; url: string } | null>(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const emailParam = params.get('email');
-      const cleanEmail = emailParam ? decodeURIComponent(emailParam).trim() : '';
-      const domain = cleanEmail.split('@')[1]?.toLowerCase() || '';
+  const provider = (() => {
+    if (email && email !== 'seu e-mail') {
+      const domain = email.split('@')[1]?.toLowerCase() || '';
       
       if (domain.includes('gmail.com')) {
         return { name: 'Abrir no Gmail', url: 'https://mail.google.com' };
@@ -34,7 +44,7 @@ export default function Obrigado() {
     }
     // Fallback for custom domains or other providers
     return { name: 'Acessar meu e-mail', url: 'https://mail.google.com' };
-  });
+  })();
 
   return (
     <section className="obrigado-section fade-in visible">
