@@ -26,14 +26,13 @@ export default function Hero() {
       <div className="hero-editorial-line hero-editorial-line--horiz" aria-hidden="true" />
 
       <div className="container hero-editorial-container">
-        <div className="hero-content">
-          <span className="eyebrow">Você cuida do mundo inteiro</span>
-          <h1 className="headline-xl balance-text">
-            Deixe a gente cuidar da sua{"\u00a0"}<em>memória</em>.
+        <div className="hero-content hero-content--wide">
+          <span className="eyebrow">VOCÊ NÃO PRECISA CARREGAR TUDO SOZINHA</span>
+          <h1 className="headline-xl headline-xl--hero balance-text">
+            Sua cabeça já está <em>cheia demais</em> pra também ter que lembrar de tudo sobre o bebê <em>sozinha</em>.
           </h1>
           <p className="body-lg hero-subheadline">
-            O primeiro aplicativo brasileiro que centraliza as vacinas, remédios e consultas do seu bebê, enquanto protege
-            o seu próprio bem-estar no puerpério.
+            O Maternar organiza vacinas, remédios e consultas automaticamente — e ainda cuida de você nessa fase tão intensa.
           </p>
           <div className="hero-cta-wrapper">
             <a href="#planos" className="btn">Quero organizar minha rotina</a>
@@ -59,7 +58,7 @@ export default function Hero() {
         <div className="hero-visual-editorial">
           {/* Fundo geométrico sutil */}
           <div className="hero-visual-bg-card" aria-hidden="true" />
-          
+
           <div className="hero-image-wrapper-editorial">
             <img src={selectedImage.src} alt={selectedImage.alt} fetchPriority="high" width={1200} height={675} />
           </div>

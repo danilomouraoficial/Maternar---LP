@@ -302,6 +302,23 @@ h4 {
   z-index: 2;
 }
 
+.hero-content--wide {
+  max-width: 620px;
+}
+
+.headline-xl--hero {
+  font-size: clamp(30px, 4.2vw, 50px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+
+.headline-xl--hero em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral);
+}
+
 .hero-subheadline {
   margin-bottom: 40px;
 }
@@ -2109,9 +2126,14 @@ details.faq-item[open] summary.faq-question::after {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    display: none;
+  }
+
   .hero {
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 24px;
+    padding-bottom: 60px;
+    min-height: auto;
   }
 
   .hero-visual-editorial {
