@@ -19,6 +19,13 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/r/:slug",
+      "destination": "https://meu.maternar.app/r/:slug",
+      "statusCode": 307
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|.*\\.).*)",
