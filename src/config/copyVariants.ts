@@ -52,7 +52,7 @@ export const COPY_VARIANTS: Record<string, CopyVariant> = {
       eyebrow: 'VACINAS, CONSULTAS E REMÉDIOS EM UM SÓ LUGAR',
       headline: 'Nunca mais se preocupe se esqueceu a hora do remédio ou a próxima vacina.',
       subheadline: 'Centralize a saúde do seu bebê em um app intuitivo que notifica você no momento certo e simplifica o seu dia a dia.',
-      cta: 'Quero testar grátis por 7 dias'
+      cta: 'Quero testar sem risco por 7 dias'
     },
     finalCta: {
       eyebrow: 'Controle Total e Simplicidade',
