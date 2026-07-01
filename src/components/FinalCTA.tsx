@@ -1,16 +1,23 @@
+import { useCopyVariant } from '../hooks/useCopyVariant';
+
 export default function FinalCTA() {
+  const variant = useCopyVariant();
+
   return (
     <section className="section closing fade-in">
       <div className="container closing-content">
         <div className="closing-text-wrapper">
-          <span className="eyebrow">Paz Mental ao Seu Alcance</span>
-          <h2 className="headline-lg balance-text">A sua cabeça merece este{"\u00a0"}<em>respiro</em>.</h2>
+          <span className="eyebrow">{variant.finalCta.eyebrow}</span>
+          <h2 
+            className="headline-lg balance-text"
+            dangerouslySetInnerHTML={{ __html: variant.finalCta.headline }}
+          />
           <p className="body-lg balance-text">
-            Garanta a organização que sua família precisa e traga leveza para o seu{"\u00a0"}puerpério.
+            {variant.finalCta.subheadline}
           </p>
         </div>
 
-        <a href="#planos" className="btn btn--dark">Garantir Meu Acesso</a>
+        <a href="#planos" className="btn btn--dark">{variant.finalCta.cta}</a>
       </div>
     </section>
   );

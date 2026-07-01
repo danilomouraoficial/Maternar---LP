@@ -3,6 +3,7 @@ import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LazySection from './components/LazySection';
+import CopySwitcher from './components/CopySwitcher';
 
 // Lazy loaded components (Code Splitting)
 const Pain = lazy(() => import('./components/Pain'));
@@ -152,6 +153,7 @@ function App() {
       <LazySection height="500px"><FAQ /></LazySection>
       <LazySection height="350px"><FinalCTA /></LazySection>
       <LazySection height="200px"><Footer /></LazySection>
+      <CopySwitcher />
     </MotionConfig>
   );
 }

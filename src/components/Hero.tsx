@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 import homeMockup from '../assets/brand/mockup/home.webp';
+import { useCopyVariant } from '../hooks/useCopyVariant';
 
 const HERO_IMAGES = [
   {
@@ -14,6 +15,7 @@ const HERO_IMAGES = [
 ];
 
 export default function Hero() {
+  const variant = useCopyVariant();
   const [selectedImage] = useState(() => {
     const randomIndex = Math.floor(Math.random() * HERO_IMAGES.length);
     return HERO_IMAGES[randomIndex];
@@ -27,15 +29,16 @@ export default function Hero() {
 
       <div className="container hero-editorial-container">
         <div className="hero-content hero-content--wide">
-          <span className="eyebrow">VOCÊ NÃO PRECISA CARREGAR TUDO SOZINHA</span>
-          <h1 className="headline-xl headline-xl--hero balance-text">
-            Sua cabeça já está <em>cheia demais</em> pra também ter que lembrar de tudo sobre o bebê <em>sozinha</em>.
-          </h1>
+          <span className="eyebrow">{variant.hero.eyebrow}</span>
+          <h1 
+            className="headline-xl headline-xl--hero balance-text"
+            dangerouslySetInnerHTML={{ __html: variant.hero.headline }}
+          />
           <p className="body-lg hero-subheadline">
-            O Maternar organiza vacinas, remédios e consultas automaticamente — e ainda cuida de você nessa fase tão intensa.
+            {variant.hero.subheadline}
           </p>
           <div className="hero-cta-wrapper">
-            <a href="#planos" className="btn">Quero organizar minha rotina</a>
+            <a href="#planos" className="btn">{variant.hero.cta}</a>
             <div className="hero-trust-info">
               <div className="hero-trust-item">
                 <Check size={14} className="hero-trust-icon-check" strokeWidth={3} />
